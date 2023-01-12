@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juventus Sastre&iacute;a </title>
+    <link rel="shortcut icon" href="./img/favIcon.png" type="image/x-icon">
+
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!-- Bootstrap Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!-- STILOS -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar bg-dark">
+            <div class="container-fluid px-4">
+              <a class="navbar-brand d-flex" href="">
+                <img src="./img/logoJuventus.jpg" alt="Logo" width="50" height="50" class="rounded-circle me-3">
+                <h1 class="fs-2 text-white m-0 py-2">Juventus Sastrer&iacute;a</h1>
+              </a>
+            </div>
+          </nav>
+    </header>
+
+    <main class="container py-5">
+       <section class="card shadow" id="cardCrearFactura">
+           <div class="card-header bg-dark text-white">
+               <h3><i class="bi bi-calculator"></i> Sistema de Facturaci&oacute;n Juventus Sastrer&iacute;a</h3>
+           </div>
+           <article class="card-body p-4">
+                <form class="row" id="formArticulos">
+                    <h3><i class="bi bi-cart4"></i> Agregar Prendas Para Confecci&oacute;n o Arreglo:</h3>
+
+                    <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                        <label for="articulo" class="form-label fw-semibold">&Aacute;rticulo:</label>
+                        <input type="text" id="articulo" class="form-control shadow-sm" required>
+                    </div>
+
+                    <div class="col-md-6 col-lg-5 mb-3 mb-lg-0">
+                        <label for="descripcion" class="form-label fw-semibold">Descripci&oacute;n:</label>
+                        <input type="text" id="descripcion" class="form-control shadow-sm" required>
+                    </div>
+
+                    <div class="col-md-4 col-lg-1 mb-3 mb-lg-0">
+                        <label for="cantidad" class="form-label fw-semibold">Cantidad:</label>
+                        <input type="number" id="cantidad" class="form-control shadow-sm" required>
+                    </div>
+
+                    <div class="col-10 col-md-6 col-lg-2">
+                        <label for="precioUni" class="form-label fw-semibold">Precio:</label>
+                        <input type="number" id="precioUni" class="form-control shadow-sm" required>
+                    </div>
+
+                    <div class="col-1 d-flex align-items-end justify-content-center ms-2 ms-lg-0">
+                        <button type="submit" class="btn btn-primary shadow-sm rounded-circle fs-4"><i class="bi bi-cart-plus"></i></button>
+                    </div>
+                </form>
+
+                <form id="formObservacion" class="row pt-3">
+                    <h4><i class="bi bi-chat-left-text"></i> Agregar Observaci&oacute;n(Gastos Extras):</h4>
+
+                    <div class="col-md-7 mb-3">
+                        <label for="observacion" class="from-label fw-semibold">Observaci&oacute;n:</label>
+                        <input type="text" id="observacion" class="form-control shadow-sm" placeholder="Agregar Observaci&oacute;n" required>
+                    </div>
+
+                    <div class="col-8 col-md-3 mb-3">
+                        <label for="gasto" class="from- fw-semibold">Gasto Extra:</label>
+                        <input type="number" id="gasto" class="form-control shadow-sm" placeholder="Agregar Observaci&oacute;n" required>
+                    </div>
+
+                    <div class="col-4 col-md-2 d-flex align-items-center">
+                        <button type="submit" class="btn btn-outline-dark border-2 fw-semibold shadow-sm">Agregar</button>
+                    </div>
+                </form>
+
+                <div class="row my-4">
+                    <div class="table-responsive">
+                        <table class="table table-bordered shadow-sm">
+                          <thead class="table-dark">
+                              <tr>
+                                  <th>&Aacute;rticulo</th>
+                                  <th>Descripci&oacute;n</th>
+                                  <th>Cantidad</th>
+                                  <th>Precio Unidad</th>
+                                  <th>Precio Total</th>
+                                  <th>Eliminar</th>
+                              </tr>
+                          </thead>
+                          <tbody id="tbodyAnadirArticulos">
+                              
+                          </tbody>
+                          <tfoot id="tfootArticulos"> 
+                            <tr>
+                                <th>Observaci&oacute;n</th>
+                                <td colspan="3" id="tdObservacion"></td>
+                                <th rowspan="2" class="fs-5 text-center">VALOR TOTAL</th>
+                                <td rowspan="2" class="bg-light" id="valorTotal"></td>
+                            </tr>
+
+                            <tr>
+                                <th>Asesor</th>
+                                <td colspan="3" class="fs-3 fst-italic" style="font-family: 'Times New Roman', Times, serif;">
+                                    Jos&eacute; Garcia
+                                </td>
+                            </tr>
+                          </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+                <form class="row" id="formDatoClientes">
+                    <h3><i class="bi bi-people-fill"></i> Datos Del Cliente:</h3>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="nombreCliente" class="form-label fw-semibold">Nombre o Raz&oacute;n Social:</label>
+                        <input type="text" id="nombreCliente" class="form-control shadow-sm" placeholder="Ingresar el nombre del cliente" required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="documento" class="form-label fw-semibold">CC/NIT:</label>
+                        <input type="number" id="documento" class="form-control shadow-sm" placeholder="Ingresar el documento del cliente" required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="numeroContacto" class="form-label fw-semibold">Cel/Tel:</label>
+                        <input type="number" id="numeroContacto" class="form-control shadow-sm" placeholder="Ingrese un n&uacute;mero de contacto">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="correo" class="form-label fw-semibold">Correo:</label>
+                        <input type="email" id="correo" class="form-control shadow-sm" placeholder="Ingrese el correo del cliente">
+                    </div>
+
+                    <div class="text-center py-2">
+                        <button type="submit" class="btn btn-lg btn-success shadow-sm">Crear Factura <i class="bi bi-check-lg"></i></button>
+                    </div>
+                </form>
+
+           </article>
+       </section>
+
+       <section class="d-none" id="cardFactura">
+            <div class="table-responsive">
+                <table id="factura" class="table table-bordered">
+                    <thead>
+                        <tr class="bg-dark text-white">
+                            <th colspan="5" class="fs-4">DISE&Ntilde;OS EXCLUSIVOS DE JUVENTUS SASTRER&Iacute;A</th>
+                        </tr>
+                        <tr style="background: #99A3A4; color: #ffffff;">
+                            <th>NIT: 1.029.564.907-1</th>
+                            <th>R&Eacute;GIMEN SIMPLIFICADO</th>
+                            <th>juventussastreria900@gmail.com</th>
+                            <th>CEL: (301) 414 4512</th>
+                            <th>CLL 75 #47- 46 Local 3</th>
+                        </tr>
+                        <tr class="bg-light"> 
+                            <th>NOMBRE/RAZ&Oacute;NSOCIAL:</th>
+                            <th>CC/NIT:</th>
+                            <th>FECHA:</th>
+                            <th>CEL/TEL:</th>
+                            <th>CORREO:</th>
+                        </tr>
+                        <tr>
+                            <td id="tdCliente"></td>
+                            <td id="tdNit"></td>
+                            <td id="tdFecha"></td>
+                            <td id="tdCelular"></td>
+                            <td id="tdCorreo"></td>
+                        </tr>
+                        <tr class="bg-light">
+                            <th>&Aacute;rticulo</th>
+                            <th>Descripci&oacute;n</th>
+                            <th>Cantidad</th>
+                            <th>Precio Unidad</th>
+                            <th>Precio Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyFactura"></tbody>
+                    <tfoot id="tfootArticulos"> 
+                        <tr>
+                            <th>Asesor: </th>
+                            <td class="fs-3 fst-italic" style="font-family: 'Times New Roman', Times, serif;">
+                                Jos&eacute; Garcia
+                            </td>
+                            <th class="fs-5 text-center">VALOR TOTAL</th>
+                            <td colspan="2" class="bg-light fw-semibold" id="totalFactura"></td>
+                        </tr>
+                
+                        <tr>
+                            <th>Observaci&oacute;n:</th>
+                            <td colspan="4" id="observacionFactura"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="text-center py-3">
+                <button class="btn btn-lg btn-outline-success shadow-sm" id="descargarPDF">Descargar Factuta <i class="bi bi-filetype-pdf"></i></button>
+            </div>
+       </section>
+    </main>
+  
+    <footer class="bg-dark p-3">
+        <div class="text-center text-white fw-semibold">
+            <a href="https://www.google.com/search?q=sastreria%20juventus%20barranquilla&oq=juvebtus+sastre&aqs=chrome.2.69i57j0i22i30l2j0i15i22i30.13275j1j15&sourceid=chrome&ie=UTF-8&tbs=lf:1,lf_ui:2&tbm=lcl&sxsrf=AJOqlzXndaEjOf4kqzcGb2CyoZFKH5n_Ow:1673328285687&rflfq=1&num=10&rldimm=17528776896091857482&lqi=Ch9zYXN0cmVyaWEganV2ZW50dXMgYmFycmFucXVpbGxhWiEiH3Nhc3RyZXJpYSBqdXZlbnR1cyBiYXJyYW5xdWlsbGGSAQZ0YWlsb3KqARoQASoWIhJzYXN0cmVyaWEganV2ZW50dXMoDg&ved=2ahUKEwjJj77Qobz8AhVXmYQIHUtXCNIQvS56BAgMEAE&sa=X&rlst=f#rlfi=hd:;si:17528776896091857482,l,Ch9zYXN0cmVyaWEganV2ZW50dXMgYmFycmFucXVpbGxhWiEiH3Nhc3RyZXJpYSBqdXZlbnR1cyBiYXJyYW5xdWlsbGGSAQZ0YWlsb3KqARoQASoWIhJzYXN0cmVyaWEganV2ZW50dXMoDg;mv:[[10.997728799999999,-74.80812449999999],[10.997081099999999,-74.80869059999999]];tbs:lrf:!1m4!1u2!2m2!2m1!1e1!2m1!1e2!3sIAE,lf:1,lf_ui:2" target="_blank" class="text-decoration-none text-white">Juventus Sastreria 2023</a>
+            <span> - </span>
+            <a href="https://github.com/Marcela-Sevilla" target="_blank" class="text-decoration-none text-white">Copyright Marcela Sevilla</a>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+
+    <!-- JQUERY -->
+    <script src="./js/jquery.min.js"></script>
+
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- APP Juventus -->
+    <script type="module" src="./js/app.js"></script>
+
+    <!-- JS CREAR PDF -->
+    <script src="./js/crearPDF.js"></script>
+    
+</body>
+</html>

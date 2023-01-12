@@ -1,0 +1,8 @@
+input,select{
+    background: rgba(66, 73, 73, 0.3) !important;
+    border-radius: 12px !important;
+    border: 0px !important;
+}
+select option{
+    background-color: white;
+}
